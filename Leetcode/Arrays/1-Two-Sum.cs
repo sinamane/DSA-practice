@@ -44,68 +44,37 @@ public class Solution {
 
 
 /*
-Approach 2:
-Two pointer
+Approach 1:
+Hash table
 
-Runtime: 177 ms, faster than 41.90% of C# online submissions for Two Sum
-Memory Usage: 44.2 MB, less than 83.19% of C# online submissions for Two Sum
+Runtime: 157 ms, faster than 68.37% of C# online submissions for Two Sum.
+Memory Usage: 45.1 MB, less than 8.20% of C# online submissions for Two Sum.
 
 Complexity Analysis:
 Time complextity:
+O(n), where n is the length of the input array and the maximum iterations taken to find the to numbers
 Space complexity:
+O(n), where n is the maximum elements stored in the dictionary
 */
-
-/*
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
-      int fast = 1;
-      int[] res = new int[2];
+        Dictionary<int, int> dict = new Dictionary<int, int>();
         
-     for(int slow = 0; slow < nums.Length; slow++)
-     {
-         int sum = nums[slow] + nums[fast];
-         
-         if(sum == target)
-         {
-             res[0] = slow;
-             res[1] = fast;
-             break;
-         }
-         fast++;
-     }
-    
-     return res;
-    
+        for(int i = 0; i < nums.Length; i++)
+        {
+            int temp = target - nums[i];
+            
+            if(dict.ContainsKey(temp))
+            {
+                return new int[] {dict[temp], i};
+            }
+            else
+            {
+                dict[nums[i]] = i;
+            }
+        }
+        
+        return null;
     }
 }
-
-public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
-        
-      int left_pointer = 0;
-      int right_pointer = nums.Length - 1;
-      int[] res = new int[2];
-        
-     while(left_pointer <= right_pointer)
-     {
-         int sum = nums[left_pointer] + nums[right_pointer];
-         
-         if(sum == target)
-         {
-             res[0] = left_pointer++;
-             res[1] = right_pointer++;
-             break;
-         }
-         
-         if(sum < target)
-             left_pointer++;
-         else
-             right_pointer--;
-     }
-    
-     return res;
-    }
-}
-
-*/

@@ -14,7 +14,7 @@ Memory Usage: 46.2 MB, less than 73.08% of C# online submissions for Top K Frequ
 
 Complexity Analysis:
 Time complextity:
-O(n^2), where n is the leght of the input array and the maximum iterations taken to find the
+O(n^2), where n is the length of the input array and the maximum iterations taken to find the
 maximum frequency elements
 Space complexity:
 O(n + k), where n is all the unique elements and k is the consent length of the result
